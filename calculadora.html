@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="styles/style.css">
+    <title>CALCULADORA</title>
+</head>
+<body>
+    <div class="calculadoradiv">
+        <h1>CALCULADORA BÁSICA</h1>
+        <br>
+        <input type="number" id="numero1" placeholder="Primer número">
+        <br>
+
+        <select id="operador">
+            <option value="suma">+</option>
+            <option value="resta">-</option>
+            <option value="multiplicacion">*</option>
+            <option value="division">/</option>
+        </select>
+        <br>
+
+        <input type="number" id="numero2" placeholder="Segundo número">  
+        <br>
+
+        <button type="button" class="btn btn-primary" onclick="calcular()">Calcular</button>
+        <br>
+        <button type="button" class="btn btn-primary" onclick="reiniciar()">Reiniciar</button> 
+
+        <p id="resultado"></p>
+    </div>
+
+    <script>
+        function calcular() {
+            var numero1 = parseFloat(document.getElementById("numero1").value);
+            var numero2 = parseFloat(document.getElementById("numero2").value);
+            var operador = document.getElementById("operador").value;
+            var resultado;
+
+            switch (operador) {
+                case "suma":
+                    resultado = numero1 + numero2;
+                    break;
+                case "resta":
+                    resultado = numero1 - numero2;
+                    break;
+                case "multiplicacion":
+                    resultado = numero1 * numero2;
+                    break;
+                case "division":
+                    if (numero2 !== 0) {
+                        resultado = numero1 / numero2;
+                    } else {
+                        resultado = "Error: División por cero";
+                    }
+                    break;
+                default:
+                    resultado = "Seleccione una operación válida";
+            }
+
+            document.getElementById("resultado").textContent = "Resultado: " + resultado;
+        }
+
+        function reiniciar() {
+            document.getElementById("numero1").value = "";
+            document.getElementById("numero2").value = "";
+            document.getElementById("operador").value = "suma"; // Puedes establecer el operador por defecto que desees.
+            document.getElementById("resultado").textContent = "";
+        }
+    </script>
+</body>
+</html>

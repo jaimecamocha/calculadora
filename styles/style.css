@@ -1,0 +1,22 @@
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    height: 100vh; /* Establece la altura del body al 100% del viewport height */
+    margin: 0;
+}
+
+.calculadoradiv {
+    background-color: #ccc; /* Color de fondo gris */
+    text-align: center; /* Centra el texto y elementos inline horizontalmente */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh; /* Establece la altura al 100% del viewport height */
+}
+
+h1 {
+    margin-top: 20px; /* Espaciado superior para el encabezado */
+}
